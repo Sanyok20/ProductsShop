@@ -1,0 +1,352 @@
+[
+    {
+        "CategoryId": 1,
+        "Name": "UltraPhone Pro 15",
+        "Price": 1299.99,
+        "Image": "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=500",
+        "Description": "Флагманський смартфон з OLED екраном 120 Гц та потужною камерою."
+    },
+    {
+        "CategoryId": 1,
+        "Name": "LiteSmart X",
+        "Price": 349.50,
+        "Image": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=500",
+        "Description": "Бюджетний смартфон із великим акумулятором на 5000 мАг."
+    },
+    {
+        "CategoryId": 1,
+        "Name": "FoldFlip Z",
+        "Price": 1499.00,
+        "Image": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=500",
+        "Description": "Складаний смартфон з гнучким екраном та стильним дизайном."
+    },
+    {
+        "CategoryId": 1,
+        "Name": "CyberPhone Gaming",
+        "Price": 899.99,
+        "Image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500",
+        "Description": "Ігровий телефон із рідинним охолодженням та додатковими тригерами."
+    },
+    {
+        "CategoryId": 1,
+        "Name": "EcoMobile One",
+        "Price": 450.00,
+        "Image": "https://images.unsplash.com/photo-1546054454-aa26e2b734c7?w=500",
+        "Description": "Екологічний смартфон із перероблених матеріалів із легкою заміною деталей."
+    },
+    {
+        "CategoryId": 2,
+        "Name": "WorkBook Pro 16",
+        "Price": 1850.00,
+        "Image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500",
+        "Description": "Потужний ноутбук для програмування та монтажу відео."
+    },
+    {
+        "CategoryId": 2,
+        "Name": "AirLite 13",
+        "Price": 999.99,
+        "Image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500",
+        "Description": "Ультратонкий та легкий ноутбук для подорожей та офісу."
+    },
+    {
+        "CategoryId": 2,
+        "Name": "GamerX Beast 17",
+        "Price": 2400.00,
+        "Image": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500",
+        "Description": "Топовий ігровий ноутбук із видеокартою RTX та дисплеєм 240 Гц."
+    },
+    {
+        "CategoryId": 2,
+        "Name": "EduBook 14",
+        "Price": 420.00,
+        "Image": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=500",
+        "Description": "Простий та надійний ноутбук для школярів і студентів."
+    },
+    {
+        "CategoryId": 2,
+        "Name": "FlexBook 360",
+        "Price": 1150.00,
+        "Image": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=500",
+        "Description": "Ноутбук-трансформер із сенсорним екраном та стилусом."
+    },
+    {
+        "CategoryId": 3,
+        "Name": "SoundBuds Pro",
+        "Price": 199.99,
+        "Image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500",
+        "Description": "TWS-навушники з активним шумозаглушенням та прозорим режимом."
+    },
+    {
+        "CategoryId": 3,
+        "Name": "StudioHead MAX",
+        "Price": 380.00,
+        "Image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500",
+        "Description": "Повнорозмірні бездротові навушники з глибоким басом."
+    },
+    {
+        "CategoryId": 3,
+        "Name": "BoomBox Portable",
+        "Price": 120.00,
+        "Image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500",
+        "Description": "Захищена від води портативна колонка для вечірок."
+    },
+    {
+        "CategoryId": 3,
+        "Name": "SoundBar Cinema 5.1",
+        "Price": 450.00,
+        "Image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500",
+        "Description": "Саундбар із сабвуфером для домашнього кінотеатру."
+    },
+    {
+        "CategoryId": 3,
+        "Name": "SportFit Earbuds",
+        "Price": 75.50,
+        "Image": "https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=500",
+        "Description": "Спортивні навушники із надійною фіксацією у вусі."
+    },
+    {
+        "CategoryId": 4,
+        "Name": "FitTracker 5",
+        "Price": 49.99,
+        "Image": "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=500",
+        "Description": "Легкий фітнес-браслет із моніторингом пульсу та сну."
+    },
+    {
+        "CategoryId": 4,
+        "Name": "ChronoSmart Ultra",
+        "Price": 420.00,
+        "Image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500",
+        "Description": "Преміальний розумний годинник у титановому корпусі з GPS."
+    },
+    {
+        "CategoryId": 4,
+        "Name": "ActiveWatch Sport",
+        "Price": 180.00,
+        "Image": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500",
+        "Description": "Годинник для бігу та плавання з захистом 5 ATM."
+    },
+    {
+        "CategoryId": 4,
+        "Name": "ClassicSmart Leather",
+        "Price": 230.00,
+        "Image": "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500",
+        "Description": "Класичний дизайн із функціоналом смарт-годинника та шкіряним ремінцем."
+    },
+    {
+        "CategoryId": 4,
+        "Name": "KidSafe Watch",
+        "Price": 65.00,
+        "Image": "https://images.unsplash.com/photo-1544117519-31a4b719223d?w=500",
+        "Description": "Дитячий годинник з SOS-кнопкою та відстеженням геолокації."
+    },
+    {
+        "CategoryId": 5,
+        "Name": "CleanBot Vacuum X",
+        "Price": 320.00,
+        "Image": "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?w=500",
+        "Description": "Робот-пилосос із функцією вологого прибирання та лідаром."
+    },
+    {
+        "CategoryId": 5,
+        "Name": "BaristaEspresso Machine",
+        "Price": 550.00,
+        "Image": "https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?w=500",
+        "Description": "Автоматична кавомашина з капучинатором."
+    },
+    {
+        "CategoryId": 5,
+        "Name": "AirPure Pro",
+        "Price": 160.00,
+        "Image": "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500",
+        "Description": "Очищувач повітря з HEPA-фільтром та іонізацією."
+    },
+    {
+        "CategoryId": 5,
+        "Name": "SmartKettle Touch",
+        "Price": 55.00,
+        "Image": "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f6?w=500",
+        "Description": "Електрочайник із вибором температури нагріву та підтримкою тепла."
+    },
+    {
+        "CategoryId": 5,
+        "Name": "Multicooker Master",
+        "Price": 110.00,
+        "Image": "https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?w=500",
+        "Description": "Мультиварка на 5 літрів із 30 автоматичними програмами."
+    },
+    {
+        "CategoryId": 6,
+        "Name": "NextGen Console 5",
+        "Price": 599.99,
+        "Image": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=500",
+        "Description": "Ігрова приставка нового покоління з підтримкою 4K 120FPS."
+    },
+    {
+        "CategoryId": 6,
+        "Name": "GamePad Pro Wireless",
+        "Price": 69.99,
+        "Image": "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=500",
+        "Description": "Бездротовий геймпад із тактильною віддачею."
+    },
+    {
+        "CategoryId": 6,
+        "Name": "VR Headset Horizon",
+        "Price": 450.00,
+        "Image": "https://images.unsplash.com/photo-1622979135225-d2ba269bc1bd?w=500",
+        "Description": "Шолом віртуальної реальності з контролерами руху."
+    },
+    {
+        "CategoryId": 6,
+        "Name": "MechKeyboard RGB",
+        "Price": 120.00,
+        "Image": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500",
+        "Description": "Механічна клавіатура з перемикачами Cherry MX та RGB-підсвічуванням."
+    },
+    {
+        "CategoryId": 6,
+        "Name": "Precision Mouse 8K",
+        "Price": 85.00,
+        "Image": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=500",
+        "Description": "Легка ігрова миша з оптичним сенсором 26000 DPI."
+    },
+    {
+        "CategoryId": 7,
+        "Name": "ErgoChair Pro",
+        "Price": 350.00,
+        "Image": "https://images.unsplash.com/photo-1580481072645-022f9a6d1270?w=500",
+        "Description": "Ергономічне офісне крісло з сітчастою спинкою та підтримкою попереку."
+    },
+    {
+        "CategoryId": 7,
+        "Name": "Standing Desk Motorised",
+        "Price": 480.00,
+        "Image": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=500",
+        "Description": "Стіл із регулюванням висоти за допомогою електроприводу."
+    },
+    {
+        "CategoryId": 7,
+        "Name": "Monitor Arm Dual",
+        "Price": 75.00,
+        "Image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500",
+        "Description": "Кронштейн для двох моніторів із газовим ліфтом."
+    },
+    {
+        "CategoryId": 7,
+        "Name": "Desk Lamp LED Smart",
+        "Price": 45.00,
+        "Image": "https://images.unsplash.com/photo-1534073828943-f801091bb18c?w=500",
+        "Description": "Настільна лампа з можливістю зміни колірної температури та бездротовою зарядкою."
+    },
+    {
+        "CategoryId": 7,
+        "Name": "UnderDesk Pedestal",
+        "Price": 110.00,
+        "Image": "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=500",
+        "Description": "Металева тумба на колесах із замком для документів."
+    },
+    {
+        "CategoryId": 8,
+        "Name": "Yoga Mat Premium",
+        "Price": 35.00,
+        "Image": "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=500",
+        "Description": "Нековзний килимок для йоги та фітнесу з екологічного матеріалу."
+    },
+    {
+        "CategoryId": 8,
+        "Name": "Dumbbell Set 20kg",
+        "Price": 90.00,
+        "Image": "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=500",
+        "Description": "Набір складаних гантелей із гранітним покриттям."
+    },
+    {
+        "CategoryId": 8,
+        "Name": "Smart Treadmill",
+        "Price": 780.00,
+        "Image": "https://images.unsplash.com/photo-1576678927484-cc907957088c?w=500",
+        "Description": "Компактна бігова доріжка з можливістю складання та застосунком."
+    },
+    {
+        "CategoryId": 8,
+        "Name": "Resistance Bands Set",
+        "Price": 25.00,
+        "Image": "https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=500",
+        "Description": "Набір із 5 фітнес-резинок різного рівня супротиву."
+    },
+    {
+        "CategoryId": 8,
+        "Name": "HydroFlask 1L",
+        "Price": 30.00,
+        "Image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500",
+        "Description": "Спортивна пляшка для води з подвійними металевими стінками."
+    },
+    {
+        "CategoryId": 9,
+        "Name": "Urban Hoodie Black",
+        "Price": 65.00,
+        "Image": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=500",
+        "Description": "Зручне худі з капюшоном із 100% натуральної бавовни."
+    },
+    {
+        "CategoryId": 9,
+        "Name": "Runner Sneakers Pro",
+        "Price": 120.00,
+        "Image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500",
+        "Description": "Легкі кросівки з амортизуючою підошвою для бігу."
+    },
+    {
+        "CategoryId": 9,
+        "Name": "Classic Denim Jacket",
+        "Price": 85.00,
+        "Image": "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=500",
+        "Description": "Джинсова куртка класичного крою."
+    },
+    {
+        "CategoryId": 9,
+        "Name": "Waterproof Windbreaker",
+        "Price": 95.00,
+        "Image": "https://images.unsplash.com/photo-1544441893-675973e31985?w=500",
+        "Description": "Вітрівка з мембранної тканини для захисту від дощу."
+    },
+    {
+        "CategoryId": 9,
+        "Name": "Casual Polo Shirt",
+        "Price": 40.00,
+        "Image": "https://images.unsplash.com/photo-1625910513413-522f2cb8be23?w=500",
+        "Description": "Класична футболка-поло з дихаючого матеріалу."
+    },
+    {
+        "CategoryId": 10,
+        "Name": "C# 12 and .NET 8 Guide",
+        "Price": 50.00,
+        "Image": "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=500",
+        "Description": "Повний практичний посібник з розробки на C# та платформі .NET."
+    },
+    {
+        "CategoryId": 10,
+        "Name": "Clean Architecture",
+        "Price": 45.00,
+        "Image": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500",
+        "Description": "Фундаментальна книга про структурування та проективання коду."
+    },
+    {
+        "CategoryId": 10,
+        "Name": "Sci-Fi Epic Novel",
+        "Price": 22.00,
+        "Image": "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=500",
+        "Description": "Захоплюючий науково-фантастичний роман про далекий космос."
+    },
+    {
+        "CategoryId": 10,
+        "Name": "Atomic Habits",
+        "Price": 28.00,
+        "Image": "https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=500",
+        "Description": "Популярна книга про формування корисних звичок та досягнення цілей."
+    },
+    {
+        "CategoryId": 10,
+        "Name": "UI/UX Design Essentials",
+        "Price": 38.00,
+        "Image": "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=500",
+        "Description": "Книга про основи проектування інтерфейсів та користувацького досвіду."
+    }
+]

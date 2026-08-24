@@ -1,0 +1,62 @@
+[
+    {
+        "Id": 1,
+        "Name": "Смартфони",
+        "Description": "Сучасні мобільні телефони та гаджети",
+        "Image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500"
+    },
+    {
+        "Id": 2,
+        "Name": "Ноутбуки",
+        "Description": "Ноутбуки для роботи, навчання та ігор",
+        "Image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500"
+    },
+    {
+        "Id": 3,
+        "Name": "Навушники та Аудіо",
+        "Description": "Бездротові навушники, колонки та акустика",
+        "Image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500"
+    },
+    {
+        "Id": 4,
+        "Name": "Розумні годинники",
+        "Description": "Смарт-годинники та фітнес-браслети",
+        "Image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500"
+    },
+    {
+        "Id": 5,
+        "Name": "Побутова техніка",
+        "Description": "Техніка для дому та комфорту",
+        "Image": "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?w=500"
+    },
+    {
+        "Id": 6,
+        "Name": "Ігрові консолі та аксесуари",
+        "Description": "Все для геймінгу та розваг",
+        "Image": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=500"
+    },
+    {
+        "Id": 7,
+        "Name": "Офісні меблі",
+        "Description": "Комфортні меблі для роботи вдома та в офісі",
+        "Image": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=500"
+    },
+    {
+        "Id": 8,
+        "Name": "Спортивні товари",
+        "Description": "Снаряддя та інвентар для фітнесу й спорту",
+        "Image": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=500"
+    },
+    {
+        "Id": 9,
+        "Name": "Одяг та Взуття",
+        "Description": "Стильний одяг для щоденного носіння",
+        "Image": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=500"
+    },
+    {
+        "Id": 10,
+        "Name": "Книги та Література",
+        "Description": "Художня та наукова література, саморозвиток",
+        "Image": "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=500"
+    }
+]
