@@ -27,7 +27,7 @@ namespace Products
                 .HasMaxLength(100);
 
                 e.Property(c => c.Image)
-                .HasMaxLength(100);
+                .HasMaxLength(70);
             });
 
             builder.Entity<Product>(e =>
@@ -42,7 +42,7 @@ namespace Products
                 .HasDefaultValue(0);
 
                 e.Property(p => p.Image)
-                .HasMaxLength(100);
+                .HasMaxLength(70);
 
                 e.Property(p => p.Description)
                 .HasMaxLength(100);

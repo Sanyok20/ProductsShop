@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Products;
 using Products.Initializer;
+using Products.Repositories;
+using Products.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +15,32 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
     opt.UseNpgsql(connectionString);
 });
 
+builder.Services.AddScoped<CategoryRepository>();
+
+builder.Services.AddScoped<ProductRepository>();
+
+builder.Services.AddScoped<ImageService>();
+
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>(); 
+
+    await context.Database.ExecuteSqlRawAsync(@"
+        SELECT setval(
+          pg_get_serial_sequence('""Categories""', 'Id'), 
+          COALESCE(MAX(""Id""), 1)
+        ) FROM ""Categories"";
+    ");
+
+    await context.Database.ExecuteSqlRawAsync(@"
+        SELECT setval(
+          pg_get_serial_sequence('""Products""', 'Id'), 
+          COALESCE(MAX(""Id""), 1)
+        ) FROM ""Products"";
+    ");
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

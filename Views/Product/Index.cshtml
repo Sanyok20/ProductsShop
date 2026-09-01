@@ -5,24 +5,47 @@
 }
 
 <div>
-    <h2 class="text-center">Товари</h2>
+    <div class="d-flex">
+        <h2 class="text-center flex-grow-1">Товари</h2>
+        <a asp-controller="Product" asp-action="Create" style="font-size: 2em;" class="me-4">
+            <i class="bi bi-plus-square-fill text-primary"></i>
+        </a>
+    </div>
     <div class="container">
         @if(Model.Any())
         {   
             <div class="row">
                 @foreach(var product in Model)
                 {
-                        <div class="p-3 col-3">
-                        <div class="card">
+                    <div class="p-3 col-3">
+                        <div class="card h-100">
                             <div class="text-center">
-                                <img src="@product.Image" alt="@product.Name" style="object-fit: contain; height: 175px; background-color: #bbbbbb;" class="w-100" />
+                                <img 
+                                    src="~/images/categories/products/@(product.Image ?? "default1.jpg")"
+                                    alt="@product.Name" 
+                                    style="object-fit: contain; height: 175px; background-color: #bbbbbb;" 
+                                    class="w-100" />
                             </div>
                             <h3 class="card-header">@product.Name</h3>
                             <div class="card-body">
+                                <p class="card-text">@product.Price</p>
                                 <p class="card-text">@product.Description</p>
                             </div>
+                            <div class="text-center p-3">
+                                <a 
+                                    asp-controller="Product" 
+                                    asp-action="Update"
+                                    asp-route-id="@product.Id"
+                                    class="btn btn-success">Редагувати</a>
+
+                                <a 
+                                    asp-controller="Product" 
+                                    asp-action="Delete" 
+                                    asp-route-id="@product.Id" 
+                                    class="btn btn-danger">Видалити</a>
+                            </div>
                         </div>
-                    </div>                
+                    </div>
                 }
             </div>
         }

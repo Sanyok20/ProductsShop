@@ -15,7 +15,7 @@
                     <div class="p-3 col-3">
                         <div class="card">
                             <div class="text-center">
-                                <img src="@product.Image" alt="@product.Name" style="object-fit: contain; height: 175px; background-color: #bbbbbb;" class="w-100" />
+                                <img src="~/images/categories/products/@(product.Image ?? "default1.jpg")" alt="@product.Name" style="object-fit: contain; height: 175px; background-color: #bbbbbb;" class="w-100" />
                             </div>
                             <h3 class="card-header">@product.Name</h3>
                             <div class="card-body">
