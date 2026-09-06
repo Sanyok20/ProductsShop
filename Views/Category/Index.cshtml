@@ -21,8 +21,9 @@
                         <div class="card h-100">
                             <div class="text-center">
                                 <img 
-                                    src="@(category.Image ?? "/images/categories/default.jpg")" 
-                                    alt="@category.Name" 
+                                    src="@(string.IsNullOrEmpty(category.Image) ? "/images/categories/default.jpg" : category.Image)"
+                                    alt="@category.Name"
+                                     onerror="this.onerror=null; this.src='/images/categories/default.jpg';"
                                     style="object-fit: contain; height: 175px; background-color: #bbbbbb;" 
                                     class="w-100" />
                             </div>

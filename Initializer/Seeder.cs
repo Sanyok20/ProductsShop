@@ -18,62 +18,64 @@ namespace Products.Initializer
 
             context.Database.Migrate();
 
-            if (!roleManager.Roles.Any())
+            if(!roleManager.RoleExistsAsync("admin").GetAwaiter().GetResult())
             {
-                var adminRole = new IdentityRole
-                {
-                    Name = "admin"
-                };
-
-                var userRole = new IdentityRole
-                {
-                    Name = "user"
-                };
-
-                roleManager.CreateAsync(adminRole).Wait();
-                roleManager.CreateAsync(userRole).Wait();
+                roleManager.CreateAsync(new IdentityRole("admin")).GetAwaiter().GetResult();
             }
 
-            if (!userManager.Users.Any())
+            if (!roleManager.RoleExistsAsync("user").GetAwaiter().GetResult())
             {
-                var admin = new ApplicationUser
+                roleManager.CreateAsync(new IdentityRole("user")).GetAwaiter().GetResult();
+            }
+
+            var adminUser = userManager.FindByEmailAsync("admin@mail.com").GetAwaiter().GetResult();
+            if (adminUser == null)
+            {
+                adminUser = new ApplicationUser
                 {
                     Email = "admin@mail.com",
                     UserName = "admin@mail.com",
                     EmailConfirmed = true
                 };
+                userManager.CreateAsync(adminUser, "qwerty").GetAwaiter().GetResult();
+            }
 
-                var user = new ApplicationUser
+            if (!userManager.IsInRoleAsync(adminUser, "admin").GetAwaiter().GetResult())
+            {
+                userManager.AddToRoleAsync(adminUser, "admin").GetAwaiter().GetResult();
+            }
+
+            var normalUser = userManager.FindByEmailAsync("user@mail.com").GetAwaiter().GetResult();
+            if (normalUser == null)
+            {
+                normalUser = new ApplicationUser
                 {
                     Email = "user@mail.com",
                     UserName = "user@mail.com",
                     EmailConfirmed = true
                 };
+                userManager.CreateAsync(normalUser, "qwerty").GetAwaiter().GetResult();
+            }
 
-                userManager.CreateAsync(admin, "qwerty").Wait();
-                userManager.CreateAsync(user, "qwerty").Wait();
-
-                userManager.AddToRoleAsync(admin, "admin").Wait();
-                userManager.AddToRoleAsync(user, "user").Wait();
+            if (!userManager.IsInRoleAsync(normalUser, "user").GetAwaiter().GetResult())
+            {
+                userManager.AddToRoleAsync(normalUser, "user").GetAwaiter().GetResult();
             }
 
             if (!context.Categories.Any())
             {
                 var filePath = Path.Combine(env.WebRootPath, "jsonData", "CategoriesAndProducts.json");
 
-                if (!File.Exists(filePath))
+                if (File.Exists(filePath))
                 {
-                    return;
-                }
+                    var json = File.ReadAllText(filePath);
+                    var categories = JsonSerializer.Deserialize<List<Category>>(json);
 
-                var json = File.ReadAllText(filePath);
-
-                var categories = JsonSerializer.Deserialize<List<Category>>(json);
-
-                if (categories != null)
-                {
-                    context.Categories.AddRange(categories);
-                    context.SaveChanges();
+                    if (categories != null)
+                    {
+                        context.Categories.AddRange(categories);
+                        context.SaveChanges();
+                    }
                 }
             }
         }

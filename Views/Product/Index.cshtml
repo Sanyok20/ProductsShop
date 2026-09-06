@@ -1,16 +1,32 @@
 ﻿@model ProductsTableVM
 @{
     ViewData["Title"] = "Список товарів";
+    var currentSort = ViewData["CurrentSort"]?.ToString() ?? "name";
 }
 
 <div class="row">
     <div class="my-3 col-2 px-5 d-flex flex-column">
         <a asp-action="Index">Всі товари</a>
+
+        <form method="get" asp-action="Index" class="my-3">
+            @if (!string.IsNullOrEmpty(Model.Category))
+            {
+                <input type="hidden" name="category" value="@Model.Category" />
+            }
+            <select name="sortOrder" onchange="this.form.submit()" class="form-select">
+                <option value="name" selected="@(currentSort == "name")">За назвою</option>
+                <option value="price_asc" selected="@(currentSort == "price_asc")">Ціна(за зростанням)</option>
+                <option value="price_desc" selected="@(currentSort == "price_desc")">Ціна(за спаданням)</option>
+                <option value="rating" selected="@(currentSort == "rating")">За рейтингом</option>
+            </select>
+        </form>
+
         @foreach (var category in Model.Categories)
         {
-            <a class="my-1" asp-action="Index" asp-route-category="@category.Name">@category.Name</a>
+            <a class="my-1" asp-action="Index" asp-route-category="@category.Name" asp-route-sortOrder="@currentSort">@category.Name</a>
         }
     </div>
+
     <div class="col-10 pe-5">
         <table class="table table-striped my-3">
             <thead>
@@ -19,6 +35,7 @@
                     <th scope="col" class="text-center">Зображення</th>
                     <th scope="col" class="text-center">Назва</th>
                     <th scope="col" class="text-center">Ціна</th>
+                    <th scope="col" class="text-center">Рейтинг</th>
                     <th scope="col" class="text-center">Категорія</th>
                     <th scope="col" class="text-center">+</th>
                 </tr>
@@ -32,10 +49,13 @@
                             <img width="100"
                                  height="75"
                                  src="@(product.Image != null ? product.Image : "/images/categories/products/default.png")"
-                                 alr="@product.Name" />
+                                 alt="@product.Name" 
+                                 onerror="this.onerror=null; this.src='/images/categories/default.jpg';" 
+                                 />
                         </td>
                         <td class="text-center">@product.Name</td>
                         <td class="text-center">@product.Price</td>
+                        <td class="text-center">@product.Rating</td>
                         <td class="text-center">@(product.Category != null ? product.Category.Name : "Без категорії")</td>
                         <td class="text-center">e d</td>
                     </tr>
@@ -52,7 +72,8 @@
                             <a class="page-link @(Model.Page == 1 ? "disabled" : "")"
                                asp-action="Index"
                                asp-route-page="@(Model.Page - 1)"
-                               asp-route-cyategor="@Model.Category"
+                               asp-route-category="@Model.Category"
+                               asp-route-sortOrder="@currentSort"
                                aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
@@ -61,7 +82,11 @@
                         @for (int i = 1; i <= Model.PageCount; i++)
                         {
                             <li class="page-item @(i == Model.Page ? "active" : "")">
-                                <a class="page-link" asp-route-category="@Model.Category" asp-action="Index" asp-route-page="@i">@i</a>
+                                <a class="page-link"
+                                   asp-action="Index"
+                                   asp-route-page="@i"
+                                   asp-route-category="@Model.Category"
+                                   asp-route-sortOrder="@currentSort">@i</a>
                             </li>
                         }
 
@@ -70,6 +95,7 @@
                                asp-action="Index"
                                asp-route-page="@(Model.Page + 1)"
                                asp-route-category="@Model.Category"
+                               asp-route-sortOrder="@currentSort"
                                aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
