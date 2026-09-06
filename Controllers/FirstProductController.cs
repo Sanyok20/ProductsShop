@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-
 namespace Products.Controllers
 {
     public class FirstProductController : Controller
@@ -14,9 +13,10 @@ namespace Products.Controllers
         public IActionResult Index()
         {
             var FirstProductInDb = _context.Products
-                .Where(p => p.Id == 1);
+                .FirstOrDefault(p => p.CategoryId == 1);
 
             return View(FirstProductInDb);
         }
     }
 }
+

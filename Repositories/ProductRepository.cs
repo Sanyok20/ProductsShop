@@ -31,93 +31,10 @@ namespace Products.Repositories
                 .FirstOrDefaultAsync(c => c.Id == id);
         }
 
-        public async Task<string?> CreateAsync(ProductCreateVM vm)
-        {
-            bool res = await IsExistsAsync(vm.Name!);
-
-            if (res)
-            {
-                return $"Продукт '{vm.Name} вже існує";
-            }
-
-            var model = new Product
-            {
-                Name = vm.Name!,
-                Price = vm.Price,
-                Description = vm.Description,
-                CategoryId = vm.CategoryId
-            };
-
-            if (vm.Image != null)
-            {
-                model.Image = await _imageService.SaveImageAsync(vm.Image, _imagesPath);
-            }
-
-            await _context.Products.AddAsync(model);
-            await _context.SaveChangesAsync();
-
-            return null;
-
-        }
-
         public async Task<bool> IsExistsAsync(string name, int id = 0)
         {
             return await _context.Products
                 .AnyAsync(c => c.Name.ToLower() == name.ToLower() && c.Id != id);
-        }
-
-        public async Task<string?> UpdateAsync(ProductUpdateVM vm)
-        {
-            bool res = await IsExistsAsync(vm.Name!, vm.Id);
-
-            if (res)
-            {
-                return $"Продукт '{vm.Name} вже існує";
-            }
-
-            var product = await GetByIdAsync(vm.Id);
-
-            if (product == null)
-            {
-                return $"Продукт з id '{vm.Id}' не існує";
-            }
-
-            product.Description = vm.Description;
-            product.Price = vm.Price;
-            product.Name = vm.Name!;
-
-            if (vm.Image != null)
-            {
-                if (product.Image != null)
-                {
-                    string imagePath = Path.Combine(_imagesPath, product.Image);
-                    _imageService.DeleteImage(imagePath);
-                }
-
-                product.Image = await _imageService.SaveImageAsync(vm.Image, _imagesPath);
-
-            }
-
-            await _context.SaveChangesAsync();
-
-            return null;
-        }
-
-        public async Task DeleteAsync(int id)
-        {
-            var product = await GetByIdAsync(id);
-
-            if (product != null)
-            {
-                if (!string.IsNullOrEmpty(product.Image))
-                {
-                    string imagePath = Path.Combine(_imagesPath, product.Image);
-                    _imageService.DeleteImage(imagePath);
-                }
-
-                _context.Products.Remove(product);
-                await _context.SaveChangesAsync();
-            }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Product>
+﻿@model Products.Models.Product
 
 @{
     ViewData["Title"] = "Перший товар з бази даних";
@@ -7,30 +7,26 @@
 <div>
     <h2 class="text-center">Перший товар з бази даних</h2>
     <div class="container">
-        @if(Model.Any())
+        @if(Model != null)
         {   
             <div class="row">
-                @foreach(var product in Model)
-                {
-                    <div class="p-3 col-3">
-                        <div class="card">
-                            <div class="text-center">
-                                <img src="~/images/categories/products/@(product.Image ?? "default1.jpg")" alt="@product.Name" style="object-fit: contain; height: 175px; background-color: #bbbbbb;" class="w-100" />
-                            </div>
-                            <h3 class="card-header">@product.Name</h3>
-                            <div class="card-body">
-                                <p class="card-text">@product.Description</p>
-                                <p class="card-text">Екран: 5,45 дюйма, IPS, роздільна здатність 1440x720 пікселів.</p>
-                                <p class="card-text">Пам'ять: 6 ГБ оперативної пам'яті (ОЗУ) та 128 ГБ вбудованої пам'яті.</p>
-                                <p class="card-text">Процесор: MediaTek Helio G35 (MT6765G).</p>
-                                <p class="card-text">Акумулятор: 6600 мА·год.</p>
-                                <p class="card-text">Захист: Стандарти IP68, IP69K та військовий MIL-STD-810G (захист від води, пилу та ударів).</p>
-                                <p class="card-text">Особливість: У верхній частині корпусу розміщені TWS-навушники, які заряджаються прямо всередині телефону.</p>
-                            </div>
-                            
+                <div class="p-3 col-3">
+                    <div class="card">
+                        <div class="text-center">
+                            <img src="@(Model.Image ?? "/images/categories/products/default1.jpg")" alt="@Model.Name" style="object-fit: contain; height: 175px; background-color: #bbbbbb;" class="w-100" />
+                        </div>
+                        <h3 class="card-header">@Model.Name</h3>
+                        <div class="card-body">
+                            <p class="card-text">@Model.Description</p>
+                            <p class="card-text">Екран: 6.67 дюйма, IPS LCD, роздільна здатність 2400 × 1080 (Full HD+), щільність 393 ppi.</p>
+                            <p class="card-text">Процесор: 8-ядерний HiSilicon Kirin 710A (14 нм), графіка Mali-G51 MP4.</p>
+                            <p class="card-text">Пам'ять: 4 ГБ оперативної (RAM) та 128 ГБ вбудованої (ROM), окремий слот для microSD до 512 ГБ.</p>
+                            <p class="card-text">Акумулятор: 5000 мА·год, швидка зарядка SuperCharge на 22.5 Вт.</p>
+                            <p class="card-text">ОС: Android 10 з оболонкою Magic UI 3.1 (без сервісів Google, використовуються Huawei Mobile Services).</p>
+                            <p class="card-text">Розміри та вага: 165.7 × 77 × 9.26 мм, 206 г.</p>
                         </div>
                     </div>
-                }
+                </div>
             </div>
         }
         else

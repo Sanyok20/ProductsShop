@@ -35,6 +35,7 @@
                 return null;
             }
         }
+
         public void DeleteImage(string path)
         {
             if (File.Exists(path))

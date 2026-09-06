@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Products.Models;
 using Products.Repositories;
@@ -6,14 +7,16 @@ using Products.ViewModels;
 
 namespace Products.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class CategoryController : Controller
     {
         private readonly CategoryRepository _categoryRepository;
 
-        public CategoryController(CategoryRepository categoryRepository)         
+        public CategoryController(CategoryRepository categoryRepository)
         {
             _categoryRepository = categoryRepository;
         }
+
         public IActionResult Index()
         {
             IEnumerable<Category> categories = _categoryRepository.Categories;

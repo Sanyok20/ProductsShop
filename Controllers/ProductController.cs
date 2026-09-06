@@ -9,93 +9,42 @@ namespace Products.Controllers
     public class ProductController : Controller
     {
         private readonly ProductRepository _productRepository;
+        private readonly CategoryRepository _categoryRepository;
 
-        public ProductController(ProductRepository productRepository)
+        public ProductController(ProductRepository productRepository, CategoryRepository categoryRepository)
         {
             _productRepository = productRepository;
-        }
-        public IActionResult Index()
-        {
-            var ProdcutsFromFirstCategory = _productRepository.Products
-                .Where(p => p.CategoryId < 3)
-                .ToList();
-
-            return View(ProdcutsFromFirstCategory);
+            _categoryRepository = categoryRepository;
         }
 
-        [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> Index(string? category, int page = 1)
         {
-            return View();
-        }
+            IQueryable<Product> products = _productRepository.Products
+                .Include(p => p.Category);
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(ProductCreateVM vm)
-        {
-            if (!ModelState.IsValid)
+
+            if (!string.IsNullOrEmpty(category))
             {
-                return View(vm);
+                products = products
+                    .Where(p => p.Category!.Name.ToLower() == category.ToLower());
             }
 
-            var result = await _productRepository.CreateAsync(vm);
+            int pageSize = 20;
+            int total = products.Count();
+            int pages = (int)Math.Ceiling((double)total / pageSize);
+            page = page < 1 || page > pages ? 1 : page;
+            products = products.Skip((page - 1) * pageSize).Take(pageSize);
 
-            if (result != null)
+            var viewModel = new ProductsTableVM
             {
-                ModelState.AddModelError("Name", result);
-                return View(vm);
-            }
-
-            return RedirectToAction("Index");
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> Update(int id)
-        {
-            var product = await _productRepository.GetByIdAsync(id);
-
-            if (product == null)
-            {
-                return RedirectToAction("Index");
-            }
-
-            var vm = new ProductUpdateVM
-            {
-                Id = id,
-                Name = product.Name,
-                Price = product.Price,
-                Description = product.Description
+                Products = products,
+                Categories = await _categoryRepository.Categories.ToListAsync(),
+                Page = page,
+                PageCount = pages,
+                Category = category
             };
 
-            return View(vm);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(ProductUpdateVM vm)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(vm);
-            }
-
-            var result = await _productRepository.UpdateAsync(vm);
-
-            if (result != null)
-            {
-                ModelState.AddModelError("Name", result);
-                return View(vm);
-            }
-
-            return RedirectToAction("Index");
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> Delete(int id)
-        {
-            await _productRepository.DeleteAsync(id);
-
-            return RedirectToAction("Index");
+            return View(viewModel);
         }
     }
 }

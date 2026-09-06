@@ -28,7 +28,7 @@ namespace Products.Repositories
         public async Task<Category?> GetByIdAsync(int id)
         {
             return await _context.Categories
-                .FirstOrDefaultAsync(c => c.Id == id);  
+                .FirstOrDefaultAsync(c => c.Id == id);
         }
 
         public async Task<string?> CreateAsync(CategoryCreateVM vm)
@@ -37,7 +37,7 @@ namespace Products.Repositories
 
             if (res)
             {
-                return $"Категорія '{vm.Name} вже існує";
+                return $"Категорія '{vm.Name}' вже існує";
             }
 
             var model = new Category
@@ -46,6 +46,7 @@ namespace Products.Repositories
                 Description = vm.Description
             };
 
+            // save image
             if (vm.Image != null)
             {
                 model.Image = await _imageService.SaveImageAsync(vm.Image, _imagesPath);
@@ -55,7 +56,6 @@ namespace Products.Repositories
             await _context.SaveChangesAsync();
 
             return null;
-
         }
 
         public async Task<bool> IsExistsAsync(string name, int id = 0)
@@ -70,7 +70,7 @@ namespace Products.Repositories
 
             if (res)
             {
-                return $"Категорія '{vm.Name} вже існує";
+                return $"Категорія '{vm.Name}' вже існує";
             }
 
             var category = await GetByIdAsync(vm.Id);
@@ -92,7 +92,6 @@ namespace Products.Repositories
                 }
 
                 category.Image = await _imageService.SaveImageAsync(vm.Image, _imagesPath);
-
             }
 
             await _context.SaveChangesAsync();
@@ -106,7 +105,7 @@ namespace Products.Repositories
 
             if (category != null)
             {
-                if (!string.IsNullOrEmpty(category.Image))
+                if (category.Image != null)
                 {
                     string imagePath = Path.Combine(_imagesPath, category.Image);
                     _imageService.DeleteImage(imagePath);
@@ -116,5 +115,5 @@ namespace Products.Repositories
                 await _context.SaveChangesAsync();
             }
         }
-    }   
+    }
 }
